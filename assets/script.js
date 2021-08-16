@@ -1,3 +1,11 @@
+var passLen = 15;
+var myPass = "";
+var min = 1;
+var max = 10;
+var min_length = 8;
+var max_length = 128;
+
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
