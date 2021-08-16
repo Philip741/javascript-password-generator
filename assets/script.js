@@ -12,10 +12,24 @@ var generateBtn = document.querySelector("#generate");
 function randomNumber(min, max) { 
   return Math.floor(Math.random() * (max - min) + min);
 } 
-function randomLetter() {
+
+function randomLetter(upper) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz"
-  pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
-  return pickLetter
+  if (upper) {
+    alphabet = alphabet.toUpperCase();
+    pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    return pickLetter
+  }
+  else {
+    pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
+    return pickLetter
+  }
+}
+
+function randomSpecial() {
+  const specChars = "#$%!";
+  picChar = specChars[Math.floor(Math.random() * specChars.length)]
+  return picChar
 }
 
 function generatePassword(passwd_len) {
