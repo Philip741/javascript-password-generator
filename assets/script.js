@@ -1,5 +1,4 @@
 var passLen = 15;
-var myPass = "";
 var min = 1;
 var max = 10;
 var min_length = 8;
@@ -14,7 +13,7 @@ function randomNumber(min, max) {
 } 
 
 function randomLetter(upper) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz"
+  var alphabet = "abcdefghijklmnopqrstuvwxyz"
   if (upper) {
     alphabet = alphabet.toUpperCase();
     pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
@@ -32,19 +31,29 @@ function randomSpecial() {
   return picChar
 }
 
-function generatePassword(passwd_len) {
-  confirm('Include numbers in password ? (press ok or cancel)');
-  return "Mypassword"
+function generatePassword(passLen) {
+  var myPass = '';
+  var inclNum = confirm('Include numbers in password ? (press ok or cancel)');
+  var inclLetter = confirm('Include letters in password ? (press ok or cancel)');
+  var inclSpecial = confirm('Include special characters (eg. #!%$) in password ? (press ok or cancel)');
+  while (myPass.length < passLen) {
+      myPass += randomLetter(upper=true);
+      myPass += randomNumber(1,10);
+      myPass += randomSpecial();
+      myPass += randomLetter(upper=false); 
+  }
+  console.log(myPass);
+  return myPass
 }
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var password = generatePassword(15);
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
   console.log('button clicked');
-
 }
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);;
