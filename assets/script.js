@@ -10,12 +10,11 @@ function randomLetter(upper) {
   if (upper) {
     alphabet = alphabet.toUpperCase();
     pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
-    return pickLetter
   }
   else {
     pickLetter = alphabet[Math.floor(Math.random() * alphabet.length)]
-    return pickLetter
   }
+  return pickLetter
 }
 
 function randomSpecial() {
