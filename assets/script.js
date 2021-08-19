@@ -71,7 +71,7 @@ function userPrompts() {
   }
 }
 function generatePassword(params,passLen,genPass) {
-     //append required parameters to the front of the password
+     //append random choice from users choices after the first four required choices are placed in genPass
      passLen = passLen - genPass.length;
      console.log(passLen);
      for (i=0; i< passLen; i++) {
